@@ -61,7 +61,7 @@ app.use("/", proxy(REDIRECT_URL, {
         proxyRes.headers["Access-Control-Allow-Headers"] = "*";
 
         // Intercept POST requests to write xAPI to the log
-        if (req.method == "POST") {
+        if (req.method == "POST" || req.method == "PUT") {
 
             // Intercept xAPI statements
             if (req.url.toLowerCase().endsWith("/statements")) {
